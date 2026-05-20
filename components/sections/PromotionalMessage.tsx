@@ -10,9 +10,9 @@ interface PromotionalMessageProps {
 }
 
 const themes = {
-  dark:  { wrapper: "bg-[#27272a]",                              text: "text-white",  border: "border-white"  },
-  light: { wrapper: "bg-white border-b border-[#e4e4e7]",        text: "text-black",  border: "border-black"  },
-  brand: { wrapper: "bg-gradient-to-b from-[#ffd700] to-[#ffbb00]", text: "text-black",  border: "border-black"  },
+  dark:  { wrapper: "bg-[#27272a]",                                 text: "text-white", border: "border-white"  },
+  light: { wrapper: "bg-white border-b border-[#e4e4e7]",           text: "text-black", border: "border-black"  },
+  brand: { wrapper: "bg-gradient-to-b from-[#ffd700] to-[#ffbb00]", text: "text-black", border: "border-black"  },
 };
 
 export default function PromotionalMessage({
@@ -23,12 +23,12 @@ export default function PromotionalMessage({
 }: PromotionalMessageProps) {
   const t = themes[variant];
   return (
-    <div className={"w-full flex justify-center items-center px-8 py-[12px] " + t.wrapper}>
-      <div className="flex gap-3 items-center">
-        <p className={"text-[16px] font-bold leading-[1.2] text-center whitespace-nowrap " + t.text} style={{ fontFamily: "Open Sans, sans-serif" }}>
+    <div className={"w-full flex justify-center items-center px-4 md:px-8 py-[12px] " + t.wrapper}>
+      <div className="flex flex-col md:flex-row gap-1 md:gap-3 items-center text-center">
+        <p className={"text-[14px] md:text-[16px] font-bold leading-[1.2] whitespace-normal md:whitespace-nowrap " + t.text} style={{ fontFamily: "Open Sans, sans-serif" }}>
           {message}
         </p>
-        <Link href={ctaHref} className={"text-[16px] font-bold leading-[1.2] border-b pb-px hover:opacity-70 transition-opacity whitespace-nowrap " + t.text + " " + t.border} style={{ fontFamily: "Open Sans, sans-serif" }}>
+        <Link href={ctaHref} className={"text-[14px] md:text-[16px] font-bold leading-[1.2] border-b pb-px hover:opacity-70 transition-opacity whitespace-nowrap " + t.text + " " + t.border} style={{ fontFamily: "Open Sans, sans-serif" }}>
           {ctaLabel}
         </Link>
       </div>
