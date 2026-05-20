@@ -6,7 +6,7 @@ import PromotionalMessage from "@/components/sections/PromotionalMessage";
 export default function HomePage() {
   return (
     <>
-      <PromotionalMessage />
+      <PromotionalMessage variant="brand" />
       <Navbar theme="light" activeHref="/" />
       <main className="flex-1">
         <HeroBanner riveSrc="/images/hex-happy.riv" />
