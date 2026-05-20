@@ -14,7 +14,7 @@ interface HeroBannerProps {
 
 export default function HeroBanner({
   heading = "Overnight Camps",
-  subtext = "Technical training in a positive, energetic environment.",
+  subtext = "Technical soccer training in a positive, energetic environment.",
   ctaLabel = "Learn More",
   ctaHref = "/camps",
   imageSrc,
