@@ -323,35 +323,11 @@ export default function Footer({ theme = "light", className }: FooterProps) {
 // Figma: node-880_2159 (Apple, 135×40) and node-880_2167 (Google, 135×40)
 
 function AppStoreBadge() {
-  return (
-    <div className="h-[40px] w-[135px] bg-black rounded-[8px] flex items-center justify-center gap-2 px-3">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      <div className="flex flex-col">
-        <span className="text-[7px] font-normal text-white font-['Open_Sans',sans-serif] leading-none">Download on the</span>
-        <span className="text-[11px] font-semibold text-white font-['Open_Sans',sans-serif] leading-tight">App Store</span>
-      </div>
-    </div>
-  );
+  return <img src="/images/badge-app-store.png" alt="Download on the App Store" width={135} height={40} style={{ display: "block" }} />;
 }
 
 function GooglePlayBadge({ isDark }: { isDark: boolean }) {
-  return (
-    <div className={cn(
-      "h-[40px] w-[135px] rounded-[8px] flex items-center justify-center gap-2 px-3 border",
-      isDark ? "bg-black border-[#3f3f46]" : "bg-white border-[#e4e4e7]"
-    )}>
-      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3.18 23.76c.3.16.65.18.97.06l11.34-6.55-2.52-2.52L3.18 23.76z" fill="#EA4335"/>
-        <path d="M20.82 10.26l-3.05-1.76-2.8 2.5 2.8 2.8 3.06-1.77c.87-.5.87-1.77-.01-2.77z" fill="#FBBC04"/>
-        <path d="M3.18.24C2.86.36 2.6.62 2.5.98v22.04c.1.36.36.62.68.74l12.22-11.74L3.18.24z" fill="#4285F4"/>
-        <path d="M4.15 23.82l11.34-6.55-2.8-2.8L3.18 23.76c.28.15.62.2.97.06z" fill="#34A853"/>
-      </svg>
-      <div className="flex flex-col">
-        <span className={cn("text-[7px] font-normal font-['Open_Sans',sans-serif] leading-none", isDark ? "text-white" : "text-[#181a1d]")}>Get it on</span>
-        <span className={cn("text-[11px] font-semibold font-['Open_Sans',sans-serif] leading-tight", isDark ? "text-white" : "text-[#181a1d]")}>Google Play</span>
-      </div>
-    </div>
-  );
+  return <img src="/images/badge-google-play.png" alt="Get it on Google Play" width={135} height={40} style={{ display: "block" }} />;
 }
 
 // ─── Icon stubs ───────────────────────────────────────────────────────────────

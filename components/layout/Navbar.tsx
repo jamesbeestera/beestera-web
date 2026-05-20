@@ -198,48 +198,12 @@ export default function Navbar({ theme = "light", activeHref, className }: Navba
 
 /** Beestera icon used in promo bar — swap with real SVG from /public/logos/ */
 function BeesteraIcon({ theme }: { theme: NavbarTheme }) {
-  // Figma has a 24px logo icon in the top-left of the promo bar
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="12" cy="12" r="10" fill={theme === "dark" ? "#000" : "#ffbb00"} />
-      <rect x="8" y="10" width="8" height="1.5" rx="0.75" fill={theme === "dark" ? "#ffbb00" : "#fff"} />
-      <rect x="8" y="13" width="8" height="1.5" rx="0.75" fill={theme === "dark" ? "#ffbb00" : "#fff"} />
-      {/* Replace this placeholder with the real Beestera icon SVG */}
-      {/* Export from Figma: Logomark (node 468:1553) → /public/logos/beestera-icon.svg */}
-    </svg>
-  );
+  return <img src="/logos/beestera-icon.svg" alt="Beestera" width={24} height={24} />;
 }
 
 /** Beestera wordmark — confirmed 96.6px × 12px in Figma */
 function BeesteraWordmark({ theme }: { theme: NavbarTheme }) {
-  // Figma: node-780_36405 (light) = "Wordmark/Light", node-780_34400 (dark) = "Wordmark/Dark"
-  // Export these as SVGs from Figma and place at:
-  //   /public/logos/beestera-wordmark-light.svg
-  //   /public/logos/beestera-wordmark-dark.svg
-  // Then replace this SVG with: <img src={`/logos/beestera-wordmark-${theme}.svg`} alt="Beestera" width={97} height={12} />
-  const color = theme === "dark" ? "#ffffff" : "#181a1d";
-  return (
-    <svg
-      width="97"
-      height="14"
-      viewBox="0 0 97 14"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-label="Beestera"
-    >
-      <text
-        x="0"
-        y="12"
-        fontFamily="'Open Sans', sans-serif"
-        fontSize="13"
-        fontWeight="700"
-        fill={color}
-        letterSpacing="-0.2"
-      >
-        beestera
-      </text>
-    </svg>
-  );
+  return <img src="/logos/beestera-wordmark-light.svg" alt="Beestera" width={97} height={12} style={{ display: "block" }} />;
 }
 
 function SearchIcon({ className }: { className?: string }) {
