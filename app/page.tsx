@@ -7,7 +7,7 @@ export default function HomePage() {
     <>
       <Navbar theme="light" activeHref="/" />
       <main className="flex-1">
-        <HeroBanner />
+        <HeroBanner imageSrc="/images/hero.jpg" />
       </main>
       <Footer theme="light" />
     </>
