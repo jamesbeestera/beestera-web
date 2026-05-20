@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
-import type { Metadata } from "next";
-import "./globals.css";
 
 // ─── Fonts ─────────────────────────────────────────────────────────────────
 // Confirmed from Figma design system:
