@@ -5,7 +5,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { useRive } from "@rive-app/react-canvas";
+import { useRive, useStateMachineInput } from "@rive-app/react-canvas";
 import { cn } from "@/lib/cn";
 
 export interface MegaMenuProps {
@@ -103,11 +103,21 @@ function MenuItemRow({ item, onClose }: { item: MenuItem; onClose: () => void })
   );
 }
 
-function HexCharacter() {
-  const { RiveComponent } = useRive({
+function HexCharacter({ isOpen }: { isOpen: boolean }) {
+  const { RiveComponent, rive } = useRive({
     src: "/images/hex-default.riv",
+    stateMachines: "Hex Machine",
     autoplay: true,
   });
+
+  // hexStates: 0=Idle, 1=Happy Celebrating, 2=Determined, 3=Disappointed, 4=Tired
+  const hexStates = useStateMachineInput(rive, "Hex Machine", "hexStates");
+
+  useEffect(() => {
+    if (!hexStates) return;
+    hexStates.value = isOpen ? 1 : 0;
+  }, [isOpen, hexStates]);
+
   return <RiveComponent className="w-full h-full" aria-hidden="true" />;
 }
 
