@@ -5,6 +5,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { useRive } from "@rive-app/react-canvas";
 import { cn } from "@/lib/cn";
 
 export interface MegaMenuProps {
@@ -103,36 +104,11 @@ function MenuItemRow({ item, onClose }: { item: MenuItem; onClose: () => void })
 }
 
 function HexCharacter() {
-  return (
-    <svg width="142" height="96" viewBox="0 0 142 96" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <ellipse cx="38" cy="54" rx="18" ry="26" fill="white" fillOpacity="0.85" stroke="#1a1a1a" strokeWidth="2" transform="rotate(-18 38 54)" />
-      <ellipse cx="104" cy="54" rx="18" ry="26" fill="white" fillOpacity="0.85" stroke="#1a1a1a" strokeWidth="2" transform="rotate(18 104 54)" />
-      <ellipse cx="71" cy="68" rx="26" ry="24" fill="#FFD300" stroke="#1a1a1a" strokeWidth="2.5" />
-      <ellipse cx="71" cy="70" rx="16" ry="16" fill="white" fillOpacity="0.5" />
-      <rect x="45" y="64" width="52" height="7" fill="#1a1a1a" fillOpacity="0.14" />
-      <rect x="45" y="76" width="52" height="7" fill="#1a1a1a" fillOpacity="0.14" />
-      <polygon points="71,90 66,84 76,84" fill="#C17D00" stroke="#1a1a1a" strokeWidth="1.5" />
-      <rect x="37" y="58" width="8" height="20" rx="4" fill="#FFD300" stroke="#1a1a1a" strokeWidth="2" transform="rotate(35 37 58)" />
-      <rect x="97" y="56" width="8" height="20" rx="4" fill="#FFD300" stroke="#1a1a1a" strokeWidth="2" transform="rotate(-35 97 56)" />
-      <circle cx="71" cy="36" r="22" fill="#FFD300" stroke="#1a1a1a" strokeWidth="2.5" />
-      <ellipse cx="63" cy="32" rx="4" ry="5" fill="#1a1a1a" />
-      <ellipse cx="79" cy="32" rx="4" ry="5" fill="#1a1a1a" />
-      <circle cx="64" cy="31" r="1.5" fill="white" />
-      <circle cx="80" cy="31" r="1.5" fill="white" />
-      <rect x="63" y="43" width="16" height="3.5" rx="2" fill="#1a1a1a" />
-      <ellipse cx="57" cy="39" rx="6" ry="3.5" fill="#FF7A1A" fillOpacity="0.28" />
-      <ellipse cx="85" cy="39" rx="6" ry="3.5" fill="#FF7A1A" fillOpacity="0.28" />
-      <line x1="64" y1="15" x2="57" y2="4" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="56" cy="3" r="3.5" fill="#1a1a1a" />
-      <line x1="78" y1="15" x2="85" y2="4" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="86" cy="3" r="3.5" fill="#1a1a1a" />
-      <ellipse cx="112" cy="48" rx="8" ry="8" fill="#945C1A" stroke="#1a1a1a" strokeWidth="1.5" />
-      <line x1="107" y1="48" x2="117" y2="48" stroke="white" strokeWidth="1.5" />
-      <line x1="112" y1="43" x2="112" y2="53" stroke="white" strokeWidth="1" />
-      <path d="M25 18 L26.5 14 L28 18 L32 19.5 L28 21 L26.5 25 L25 21 L21 19.5 Z" fill="#FFD300" />
-      <path d="M117 20 L118 17 L119 20 L122 21 L119 22 L118 25 L117 22 L114 21 Z" fill="#FFD300" />
-    </svg>
-  );
+  const { RiveComponent } = useRive({
+    src: "/images/hex-default.riv",
+    autoplay: true,
+  });
+  return <RiveComponent className="w-full h-full" aria-hidden="true" />;
 }
 
 function HiveIcon() {
