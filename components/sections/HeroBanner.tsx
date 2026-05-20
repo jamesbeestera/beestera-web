@@ -23,11 +23,11 @@ export default function HeroBanner({
 }: HeroBannerProps) {
   return (
     <section className="bg-white w-full flex flex-col items-start">
-      <div className="w-full flex flex-col gap-3 items-center px-[120px] py-[48px]">
-        <h1 className="text-[64px] font-bold leading-[93px] text-[#1a1a1a] text-center max-w-[1200px] w-full">
+      <div className="w-full flex flex-col gap-3 items-center px-6 md:px-16 lg:px-[120px] py-8 md:py-[48px]">
+        <h1 className="text-[36px] md:text-[48px] lg:text-[64px] font-bold leading-[1.2] text-[#1a1a1a] text-center max-w-[1200px] w-full">
           {heading}
         </h1>
-        <p className="text-[16px] font-normal leading-[1.5] text-[#6b6b6b] text-center max-w-[840px] w-full">
+        <p className="text-[14px] md:text-[16px] font-normal leading-[1.5] text-[#6b6b6b] text-center max-w-[840px] w-full">
           {subtext}
         </p>
         <a href={ctaHref} className="flex items-center gap-1.5 mt-1">
