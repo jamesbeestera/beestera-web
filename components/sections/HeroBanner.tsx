@@ -35,7 +35,7 @@ export default function HeroBanner({
           <span className="text-[17px] text-[#c17d00]">→</span>
         </a>
       </div>
-      <div className="w-full h-[392px] overflow-hidden relative bg-[#f8f7f4]">
+      <div className="w-full h-[392px] overflow-hidden relative bg-[#f8f7f4]" style={{ backgroundImage: "url(/images/hive-pattern.svg)", backgroundSize: "cover", backgroundPosition: "center" }}>
         {riveSrc ? (
           <RiveAnimation src={riveSrc} />
         ) : imageSrc ? (
