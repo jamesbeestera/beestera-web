@@ -1,21 +1,5 @@
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
 import "./globals.css";
-
-// ─── Fonts ─────────────────────────────────────────────────────────────────
-// Confirmed from Figma design system:
-// Primary font: Open Sans (all UI text — nav, footer, body, buttons)
-// Weights confirmed: 400 (Regular), 600 (SemiBold), 700 (Bold), 800 (ExtraBold)
-// Note: design system also uses Inter for country/legal text — loaded below
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  variable: "--font-open-sans",
-  display: "swap",
-  weight: ["400", "600", "700", "800"],
-});
-
-// ─── Metadata ──────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
   title: {
@@ -42,11 +26,9 @@ export const metadata: Metadata = {
   },
 };
 
-// ─── Root Layout ───────────────────────────────────────────────────────────
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={openSans.variable}>
+    <html lang="en">
       <body>
         {children}
       </body>
