@@ -12,9 +12,10 @@
 // Total navbar height: 96px (36 + 60)
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { cn } from "@/lib/cn";
 import { primaryNavLinks, promoBarLinks } from "@/data/navigation";
+import MegaMenu from "@/components/layout/MegaMenu";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -32,6 +33,8 @@ interface NavbarProps {
 
 export default function Navbar({ theme = "light", activeHref, className }: NavbarProps) {
   const [searchValue, setSearchValue] = useState("");
+  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const aboutRef = useRef<HTMLButtonElement>(null);
   const isDark = theme === "dark";
 
   return (
@@ -125,6 +128,58 @@ export default function Navbar({ theme = "light", activeHref, className }: Navba
           >
             {primaryNavLinks.map((link) => {
               const isActive = activeHref === link.href;
+              const isAbout = link.label === "About";
+
+              // "About" gets a button that opens the megamenu instead of a direct link
+              if (isAbout) {
+                return (
+                  <div key={link.href} className="relative">
+                    <button
+                      ref={aboutRef}
+                      type="button"
+                      aria-expanded={megaMenuOpen}
+                      aria-haspopup="dialog"
+                      onClick={() => setMegaMenuOpen((prev: boolean) => !prev)}
+                      className={cn(
+                        "flex items-center gap-1 text-[18px] font-semibold leading-[1.5] whitespace-nowrap transition-colors",
+                        "font-['Open_Sans',sans-serif]",
+                        megaMenuOpen || isActive
+                          ? isDark ? "text-white" : "text-black"
+                          : isDark ? "text-[#a1a1aa] hover:text-white" : "text-[#71717a] hover:text-black",
+                      )}
+                      style={{ fontVariationSettings: "'wdth' 100" }}
+                    >
+                      {link.label}
+                      {/* Chevron — rotates when open */}
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                        className={cn(
+                          "transition-transform duration-200 mt-0.5",
+                          megaMenuOpen ? "rotate-180" : "rotate-0"
+                        )}
+                      >
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </button>
+
+                    {/* MegaMenu — positioned relative to the "About" button */}
+                    <MegaMenu
+                      isOpen={megaMenuOpen}
+                      onClose={() => setMegaMenuOpen(false)}
+                      theme={theme}
+                    />
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={link.href}
