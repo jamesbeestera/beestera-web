@@ -173,4 +173,8 @@ function CareersIcon() {
 
 function NewsIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLineca
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4 22h16a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v17" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><rect x="8" y="13" width="8" height="2" rx="1" fill="currentColor" stroke="none" /><rect x="8" y="17" width="5" height="2" rx="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
