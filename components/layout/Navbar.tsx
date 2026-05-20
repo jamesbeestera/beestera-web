@@ -41,7 +41,7 @@ export default function Navbar({ theme = "light", activeHref, className }: Navba
     <header
       role="banner"
       className={cn(
-        "w-full flex flex-col",
+      "w-full flex flex-col relative z-[100]",
         // Total height: 36px promo + 60px nav = 96px
         className
       )}
