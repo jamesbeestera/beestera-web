@@ -1,6 +1,6 @@
 "use client";
-import Link from "next/link";
-import { useRive } from "@rive-app/react-canvas";
+import { useEffect } from "react";
+import { useRive, useStateMachineInput } from "@rive-app/react-canvas";
 
 interface HeroBannerProps {
   heading?: string;
@@ -8,17 +8,15 @@ interface HeroBannerProps {
   ctaLabel?: string;
   ctaHref?: string;
   imageSrc?: string;
-  riveSrc?: string;
   imageAlt?: string;
 }
 
 export default function HeroBanner({
   heading = "Overnight Camps",
-  subtext = "Technical soccer training in a positive, energetic environment.",
+  subtext = "Technical training in a positive, energetic environment.",
   ctaLabel = "Learn More",
   ctaHref = "/camps",
   imageSrc,
-  riveSrc,
   imageAlt = "Beestera camp photo",
 }: HeroBannerProps) {
   return (
@@ -36,21 +34,35 @@ export default function HeroBanner({
         </a>
       </div>
       <div className="w-full h-[392px] overflow-hidden relative z-0 bg-[#f8f7f4]" style={{ backgroundImage: "url(/images/hive-pattern.svg)", backgroundSize: "cover", backgroundPosition: "center" }}>
-        {riveSrc ? (
-          <RiveAnimation src={riveSrc} />
-        ) : imageSrc ? (
+        {imageSrc ? (
           <img src={imageSrc} alt={imageAlt} className="w-full h-full object-cover" />
         ) : (
-          <div className="w-full h-full flex items-center justify-center">
-            <p className="text-[11px] text-[#a3a3a3] text-center">Add your photo or Rive animation here</p>
-          </div>
+          <HexAnimation />
         )}
       </div>
     </section>
   );
 }
 
-function RiveAnimation({ src }: { src: string }) {
-  const { RiveComponent } = useRive({ src, autoplay: true });
-  return <RiveComponent className="w-full h-full" />;
+function HexAnimation() {
+  const { RiveComponent, rive } = useRive({
+    src: "/images/hex-default.riv",
+    stateMachines: "Hex Machine",
+    autoplay: true,
+  });
+
+  // hexStates: 0=Idle, 1=Happy Celebrating, 2=Determined, 3=Disappointed, 4=Tired
+  const hexStates = useStateMachineInput(rive, "Hex Machine", "hexStates");
+
+  // Start idle, then celebrate after 1 second once page loads
+  useEffect(() => {
+    if (!hexStates) return;
+    hexStates.value = 0;
+    const timer = setTimeout(() => {
+      hexStates.value = 1;
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [hexStates]);
+
+  return <RiveComponent className="w-full h-full" aria-hidden="true" />;
 }
