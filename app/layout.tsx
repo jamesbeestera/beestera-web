@@ -1,12 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
-
-// ─── Fonts ─────────────────────────────────────────────────────────────────
-// Confirmed from Figma design system:
-// Primary font: Open Sans (all UI text — nav, footer, body, buttons)
-// Weights confirmed: 400 (Regular), 600 (SemiBold), 700 (Bold), 800 (ExtraBold)
-// Note: design system also uses Inter for country/legal text — loaded below
-
-// ─── Metadata ──────────────────────────────────────────────────────────────
+import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
@@ -32,8 +25,6 @@ export const metadata: Metadata = {
     icon: "/icons/favicon.ico",
   },
 };
-
-// ─── Root Layout ───────────────────────────────────────────────────────────
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
