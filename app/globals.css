@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Beestera — Global Styles
+   Design System confirmed from Figma: Beestera Design System (XqjslBteBHblizsRxBiw4K)
+   Primary font: Open Sans (all weights)
+   Color system: Gray/Zinc scale + Yellow brand
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@layer base {
+  :root {
+    /* Brand — confirmed Color/Brand/Primary */
+    --color-brand-primary:       #ffbb00;
+    --color-brand-hover:         #ffd700;
+    --color-brand-subtle:        #fef9c3;
+
+    /* Surface — confirmed semantic aliases */
+    --color-surface-primary:     #ffffff;
+    --color-surface-secondary:   #fafafa;
+    --color-surface-tertiary:    #f4f4f5;  /* Used in navbar promo bar, legal bar */
+    --color-surface-inverse:     #18181b;
+
+    /* Text — confirmed from Figma nodes */
+    --color-text-primary:        #181a1d;  /* Headings, confirmed from multiple footer nodes */
+    --color-text-secondary:      #71717a;  /* Nav links, footer links */
+    --color-text-tertiary:       #a1a1aa;  /* Search placeholder, disabled */
+    --color-text-on-yellow:      #000000;
+    --color-text-on-inverse:     #ffffff;
+
+    /* Border — confirmed */
+    --color-border-subtle:       #e4e4e7;
+    --color-border-default:      #d4d4d8;
+    --color-border-strong:       #a1a1aa;
+
+    /* Gray raw — Tailwind Zinc, confirmed in design system docs */
+    --color-gray-50:    #fafafa;
+    --color-gray-100:   #f4f4f5;
+    --color-gray-200:   #e4e4e7;
+    --color-gray-300:   #d4d4d8;
+    --color-gray-400:   #a1a1aa;
+    --color-gray-500:   #71717a;
+    --color-gray-600:   #52525b;
+    --color-gray-700:   #3f3f46;
+    --color-gray-800:   #27272a;
+    --color-gray-900:   #18181b;
+    --color-white:      #ffffff;
+    --color-black:      #000000;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Body — full height flex column for sticky footer */
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', system-ui, sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-surface-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Accessible focus ring — brand yellow glow */
+  *:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Site content wrapper */
+  .site-container {
+    @apply mx-auto w-full max-w-[1440px] px-12;
+  }
+}
