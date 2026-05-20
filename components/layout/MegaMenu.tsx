@@ -84,7 +84,7 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
           </div>
         </div>
         <div className="flex items-end justify-center mt-4 h-24 overflow-hidden">
-          <HexCharacter />
+          <HexCharacter isOpen={isOpen} />
         </div>
       </div>
     </div>
