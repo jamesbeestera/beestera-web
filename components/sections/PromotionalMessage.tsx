@@ -23,7 +23,7 @@ export default function PromotionalMessage({
 }: PromotionalMessageProps) {
   const t = themes[variant];
   return (
-    <div className={"w-full flex justify-center items-center px-8 py-[23px] " + t.wrapper}>
+    <div className={"w-full flex justify-center items-center px-8 py-[12px] " + t.wrapper}>
       <div className="flex gap-3 items-center">
         <p className={"text-[16px] font-bold leading-[1.2] text-center whitespace-nowrap " + t.text} style={{ fontFamily: "Open Sans, sans-serif" }}>
           {message}
