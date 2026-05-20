@@ -9,7 +9,7 @@ export default function HomePage() {
       <PromotionalMessage variant="brand" />
       <Navbar theme="light" activeHref="/" />
       <main className="flex-1">
-        <HeroBanner riveSrc="/images/hex-happy.riv" />
+        <HeroBanner />
       </main>
       <Footer theme="light" />
     </>
